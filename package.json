@@ -1,5 +1,5 @@
 {
-  "name": "sleeptime",
+  "name": "es-node-sleeptime",
   "version": "1.0.1",
   "description": "Detects when the system wakes up from sleep mode and calls a callback function.",
   "author": {
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/timrach/sleeptime"
+    "url": "https://github.com/eternalsayed/es-node-sleeptime"
   },
   "bugs": {
-    "url": "https://github.com/timrach/sleeptime/issues"
+    "url": "https://github.com/eternalsayed/es-node-sleeptime/issues"
   },
   "engines": {
     "node": ">= 0.10.29"
@@ -22,7 +22,8 @@
     "system",
     "sleepmode",
     "wakeup",
-    "time"
+    "time",
+    "resume"
   ],
   "license": "MIT"
 }

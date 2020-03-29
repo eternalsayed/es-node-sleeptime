@@ -1,24 +1,28 @@
 # SleepTime
+This package is a fork of https://github.com/timrach/sleeptime
 
-Detects when the system wakes up from sleep mode and calls a callback function.   
+
+Detect when the system wakes up from sleep mode and call a callback function.   
 The callback gets passed the duration the system was in sleep mode and the date
-the system woke up again.
+the system woke up again, and the stop function if you want to stop further trigerring of function on consequent wakeup.
 
 ## Usage
 
 ```javascript
+    function onWakeup(diff,date, stopFn) {
+        console.log("System slept for" + diff + " seconds" + " and woke up at " + date);
+        stopFn.stop();
+    }
     var SleepTime = require('sleeptime');
     /* If the system idles for 5 seconds, call the function notify. */
-    var sleepy = new SleepTime(function(diff,date){
-                                  console.log("System slept for" + diff + " seconds" + 
-                                              " and woke up at " + date);}, 5000);
+    var sleepy = new SleepTime(onWakeup, 5000);
     
     /* You don't have to specify a threshold. The module defaults the threshold to 10 seconds.  
      * So this works too: 
      */
-    var sleepy = new SleepTime(function(diff,date){
-                                  console.log("System slept for" + diff + " seconds" + 
-                                              " and woke up at " + date);});
+    var sleepy = new SleepTime(function(diff, date, stopFn) {
+        sleepy.stop();//another way to stop
+    });
 ```
 
 ## Note:
@@ -29,7 +33,7 @@ The module was only tested on OSX...I can't say if it works on other systems but
 
 (The MIT License)
 
-Copyright (c) 2011-2014 Tim Rach <tim.rach91@gmail.com>
+Copyright (c) 2020
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
