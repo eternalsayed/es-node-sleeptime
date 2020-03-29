@@ -11,7 +11,7 @@ the system woke up again, and the stop function if you want to stop further trig
 ```javascript
     function onWakeup(diff,date, stopFn) {
         console.log("System slept for" + diff + " seconds" + " and woke up at " + date);
-        stopFn.stop();
+        stopFn();
     }
     var SleepTime = require('sleeptime');
     /* If the system idles for 5 seconds, call the function notify. */
